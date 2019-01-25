@@ -46,7 +46,7 @@ client.on('guildMemberAdd', member=> {
 
 
 
-*/
+
 client.on("ready", async  => {
 setInterval(function(){
 client.channels.find('id', '538307726762049536').setName("W");
@@ -69,7 +69,7 @@ client.channels.find('id', '538307726762049536').setName("Welcome To e");
 client.channels.find('id', '538307726762049536').setName("Welcome To Crown Store");
   }, 4000);
 });
-/*
+
 
 
 
