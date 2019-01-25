@@ -35,10 +35,11 @@ channel.send({embed : embed});
 
 client.on("ready", () => {
   function lol() {
-    client.guilds.get('ايدي سيرفرك').roles.find("name", "اسم الرتبة RainBow").setColor("RANDOM");
+    client.guilds.get('525725276924018719').roles.find("name", "- President -").setColor("RANDOM");
   };
   setInterval(lol, 1600);
 }); //Epic Codes
+
 
 client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","- CS 195 -"));
@@ -72,7 +73,31 @@ client.on('message', message => {
    });
 
 
-
+client.on('message', message => {
+         if(message.content === prefix + "closeroom") {
+                             if(!message.channel.guild) return message.reply('** This command only for servers**');
+  
+     if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__ليس لديك صلاحيات__**');
+                message.channel.overwritePermissions(message.guild.id, {
+              SEND_MESSAGES: false
+  
+                }).then(() => {
+                    message.reply("**__تم تقفيل الشات__ ✅ **")
+                });
+                  }
+      if(message.content === prefix + "openroom") {
+                          if(!message.channel.guild) return message.reply('** This command only for servers**');
+  
+     if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**__ليس لديك صلاحيات__**');
+                message.channel.overwritePermissions(message.guild.id, {
+              SEND_MESSAGES: true
+  
+                }).then(() => {
+                    message.reply("**__تم فتح الشات__✅**")
+                });
+      }
+         
+});
 
 
 
