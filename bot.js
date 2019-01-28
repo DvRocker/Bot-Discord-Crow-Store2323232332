@@ -32,7 +32,7 @@ channel.send({embed : embed});
 
 client.on("ready", () => {
   function lol() {
-    client.guilds.get('525725276924018719').roles.find("name", "- President -").setColor("RANDOM");
+    client.guilds.get('358529506052669440').roles.find("name", "- President -").setColor("RANDOM");
   };
   setInterval(lol, 1600);
 }); //Epic Codes
