@@ -234,6 +234,11 @@ message.guild.member(user).kick();
 
 
 
+client.on('guildMemberAdd', member=> {
+    member.setNickname(`Crown || ${member.user.username}`)
+});
+
+
 client.login(process.env.BOT_TOKEN);
 
 
