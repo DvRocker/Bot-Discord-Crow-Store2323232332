@@ -101,56 +101,23 @@ client.on('message', message => {
 
 
 
-client.on("message", msg => {//So-92.#0885
-    if(msg.author.bot) return;
-if(msg.channel.type === 'dm') return;
-
-let p = "!";//البرفكس
-let msgarray = msg.content.split(" ");//So-92.#0885
-let cmd = msgarray[0];//So-92.#0885
-let args = msgarray.slice(1);
-
-if(cmd === `${p}ban`){
-    let bUser = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
-if(!bUser) return msg.channel.send("استخدم: `[ ${p}ban @user <السبب> ] مثال : ${p} @So-92.#0885 نشر`");
-let breason = args.join(" ").slice(22);
-if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send("ليس لديك الصلاحية الكافية ❌").then(s => {
-s.delete(1600);
-})
- if(!msg.guild.me.hasPermission("BAN_MEMBERS")) return msg.channel.send("انا ليس لدي صلاحية كافية ❌").then(z => {
-z.delete(1600);
-})
-if(bUser.hasPermission("BAN_MEMBERS")) return msg.channel.send("لا يمكنني ان احظر اداري").then(bs => {
-bs.delete(1600);
-})
-//So-92.#0885
-let banembed = new Discord.RichEmbed()
-.setDescription("~ban~")
-.setColor("BLACK")
-.addField("banned User", `${bUser} with ID: ${bUser.id}`)
-.addField("banned By", `<@${msg.author.id}> with ID: ${msg.author.id}`)
-.addField("banned In", msg.channel)
-.addField("Time", msg.createdAt)
-.addField("Reason", breason)
-//So-92.#0885
-let banChannel = msg.guild.channels.find("name","log-bans");
-if(!banChannel) return msg.channel.send(`اكتب ${p}banslog`).then(pb => {
-pb.delete(1600);
-})
-//So-92.#0885
-msg.guild.member(bUser).ban();
-msg.reply("تم بنجاح").then(ps => {
-ps.edit("✅").then(ss => {
-ss.delete(1500)
-})
-})
-banChannel.send(banembed)
-    return;
-}
-
-
-});//So-92.#0885
-
+client.on('message', message => {    ///Toxic Codes
+            if (message.content.startsWith("!rules")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField('     اولا ' ,' ممنوع السب ')
+.addField('     ثانيا ' ,' لا تسوي سبام  ')
+.addField('     ثالثا ' ,' لا تزعج الاخرين ')
+.addField('    رابعا' ,' ممنوع الاعلانات ')
+.addField('    خامسا' ,' احترم الاخرين ')
+.addField('    سادسا' ,' لا تنشر في الشات او بل خاص ')    ///Toxic Codes
+.addField('    سابعا' ,' لا تنشر روابط! ')
+.addField('    ثامنا' ,' لا تسوي سبام ايموجي ')
+.addField('    تاسعا' ,' لا تطلب رتبه الاداره ! ')
+.setColor('#7d2dbe')
+  message.channel.sendEmbed(embed);   ///Toxic Codes
+    }  
+});    ///Toxic Codes
 
 
 client.login(process.env.BOT_TOKEN);
