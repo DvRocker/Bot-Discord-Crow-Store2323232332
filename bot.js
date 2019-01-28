@@ -237,25 +237,6 @@ client.on('guildMemberAdd', member=> {
 
 
 
-var guilds = {};
-client.on('message',async message => {
- var prefix = '!';//البرفكس
-  if(message.content.startsWith(prefix + "تقديم")) {
- 
-if(!message.channel.guild) return message.reply(' ');
- 
- 
-  let submite = message.guild.channels.find(`name`, "التقديمات");
- 
-  if(!submite) return message.channel.send("❌لم اجد الروم الخاص بالتقديمات");
- 
-    let filter = m => m.author.id === message.author.id;
- 
-    let thisMessage;
- 
-    let thisFalse;
- 
-    message.channel.send('
 
 
 client.login(process.env.BOT_TOKEN);
