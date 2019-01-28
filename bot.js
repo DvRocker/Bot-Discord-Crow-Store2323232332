@@ -5,14 +5,11 @@ var prefix = "!"
 
 client.on('guildMemberAdd', member => {
     var embed = new Discord.RichEmbed()
-    .setAuthor(member.user.username, member.user.avatarURL)
     .setThumbnail(member.user.avatarURL)
-    .setTitle(`عضو جديد`)
-    .setDescription(`اهلا بك في السيرفر`)
-    .addField(' :bust_in_silhouette:  انت رقم',`**[ ${member.guild.memberCount} ]**`,true)
-    .setColor('GREEN')
-    .setFooter('Crown Store', 'https://cdn.discordapp.com/icons/390551815072251904/418fa2788d8115808951c9881ba8f190.jpg')
-
+  .addField("***شكرا الانضمامك الينا***" ,member.user.username )
+    .setDescription('***بكل حب واحترام وشوق نستقبلك ونتمنى لك قضآء أجمل اللحظات ولآوقات معنا***')
+    .setColor('RANDOM')
+    .setImage('http://www.imgion.com/images/01/Welcome-buddy.jpg')
 var channel =member.guild.channels.find('name', 'chat')
 if (!channel) return;
 channel.send({embed : embed});
