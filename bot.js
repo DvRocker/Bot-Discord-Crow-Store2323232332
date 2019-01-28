@@ -123,7 +123,7 @@ client.on('message', message => {    ///Toxic Codes
 client.on('message', async msg => { //Toxic Codes
     if (msg.content.toLowerCase() === "prefix" + "disco") {//Toxic Codes
    if (msg.channel.type === "dm") return; 
-  const renk = [//Toxic Codes
+  const clinet = [//Toxic Codes
   'DEFAULT',
   'BLACK',
   'GREEN',
