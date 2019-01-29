@@ -5,11 +5,14 @@ var prefix = "!"
 
 client.on('guildMemberAdd', member => {
     var embed = new Discord.RichEmbed()
+    .setAuthor(member.user.username, member.user.avatarURL)
     .setThumbnail(member.user.avatarURL)
-  .addField("***شكرا الانضمامك الينا***" ,member.user.username )
-    .setDescription('***بكل حب واحترام وشوق نستقبلك ونتمنى لك قضآء أجمل اللحظات ولآوقات معنا***')
-    .setColor('RANDOM')
-    .setImage('http://www.imgion.com/images/01/Welcome-buddy.jpg')
+    .setTitle(`عضو جديد`)
+    .setDescription(`اهلا بك في السيرفر`)
+    .addField(' :bust_in_silhouette:  انت رقم',`**[ ${member.guild.memberCount} ]**`,true)
+    .setColor('GREEN')
+    .setFooter('Crown Store', 'https://images-ext-1.discordapp.net/external/7zEICvLUS2mPYG2RVAsa7S5IHDYpPz2mu_TM2Xbv5-4/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/528532541397794818/5746667b86e4874494bdef1818f417a4.png?width=513&height=513')
+
 var channel =member.guild.channels.find('name', 'chat')
 if (!channel) return;
 channel.send({embed : embed});
@@ -30,12 +33,7 @@ if (!channel) return;
 channel.send({embed : embed});
 });
 
-client.on("ready", () => {
-  function lol() {
-    client.guilds.get('358529506052669440').roles.find("name", "- President -").setColor("RANDOM");
-  };
-  setInterval(lol, 1600);
-}); //Epic Codes
+
 
 
 client.on('guildMemberAdd', member=> {
@@ -45,29 +43,6 @@ client.on('guildMemberAdd', member=> {
 
 
 
-client.on('message', message => {
-    if (message.content.includes('discord.gg')){    //شيل المسافه
-                        if(!message.channel.guild) return message.reply ('')
-                    if (!message.member.hasPermissions(['MANAGE_MESSAGES'])){
-       message.channel.send('kick <@' + message.author.id + '>')
-       message.delete() 
-       }
-    }
-          if (message.content.startsWith("kick ")) {
-             if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply();
-             var member= message.mentions.members.first();
-             member.ban().then((member) => {
-                 message.channel.sendMessage("", {embed: {
-                 author: {
-                 },
-                 title: 'بسبب النشر ' + member.displayName + ' تم طرد',
-                 color: 490101,
-                 }
-               });
-           }
-         ) 
-       }
-   });
 
 
 client.on('message', message => {
