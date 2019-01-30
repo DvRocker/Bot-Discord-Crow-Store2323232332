@@ -158,13 +158,13 @@ client.on('guildMemberAdd', member=> {
 
 var guilds = {};
 client.on('message',async message => {
- var prefix2 = '#';//البرفكس
+ var prefix2 = '!';//البرفكس
   if(message.content.startsWith(prefix2 + "تقديم")) {
  
 if(!message.channel.guild) return message.reply(' ');
  
  
-  let submite = message.guild.channels.find(`name`, "اسم روم الي يحطلك معلومات الي قدم");
+  let submite = message.guild.channels.find(`name`, "التقديمات");
  
   if(!submite) return message.channel.send("❌لم اجد الروم الخاص بالتقديمات");
  
