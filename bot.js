@@ -313,7 +313,30 @@ ${message.author.id}`);
 
 
 
+if(cmd ==="!report"){
+        let wUser = message.guild.member (message.mentions.users.first())  message.guild.members.get(args[0]);
+          if(!wUser) return message.reply("يجب ان تمنشن شخص اول")
+    let reason = args.join(" ").slice(22);
 
+message.channel.send("تم ارسال  الشكوى  الى الادارة العليا  ")
+
+   let embed = new Discord.RichEmbed()
+          .setColor('RANDOM')
+  .addField("reoprt user",${wUser} with id ${wUser.id})
+  .addField("reoprt by",${message.author} with id ${message.author.id})
+  .addField("channel",message.channel)
+  .addField("TIME",message.createdAt)
+  .addField("Reson",reason)
+
+
+  let warnchannel = message.guild.channels.find(name,"bot")
+  if(!warnchannel) return message.reply("لا يجود الشات ")
+
+  message.delete().catch(O_o=>{})
+  warnchannel.send(embed);
+
+
+  }
 
 
 
