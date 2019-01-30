@@ -318,7 +318,6 @@ const { Client } = require('discord.js');
 const prefix = "!";
 const client = new Client();
 
-client.login('NTI4OTU4NjExNDk0NDA0MDk2.DzMPWg.EulJ5OQoM9D_K8lVBjq8fvwWBCQ');
 
 client.on('ready', () => {
     console.log('ready');
