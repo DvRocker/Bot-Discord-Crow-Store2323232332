@@ -156,6 +156,217 @@ client.on('guildMemberAdd', member=> {
 });
 
 
+var guilds = {};
+client.on('message',async message => {
+ var prefix2 = '#';//البرفكس
+  if(message.content.startsWith(prefix2 + "تقديم")) {
+ 
+if(!message.channel.guild) return message.reply(' ');
+ 
+ 
+  let submite = message.guild.channels.find(`name`, "اسم روم الي يحطلك معلومات الي قدم");
+ 
+  if(!submite) return message.channel.send("❌لم اجد الروم الخاص بالتقديمات");
+ 
+    let filter = m => m.author.id === message.author.id;
+ 
+    let thisMessage;
+ 
+    let thisFalse;
+ 
+    message.channel.send('📝 **| من فضلك اكتب اسمك الأن... ✏ **').then(msg => {
+ 
+ 
+ 
+    message.channel.awaitMessages(filter, {
+ 
+      max: 1,
+ 
+      time: 90000,
+ 
+      errors: ['time']
+ 
+    })
+ 
+    .then(collected => {
+ 
+      collected.first().delete();
+ 
+      thisMessage = collected.first().content;
+ 
+      let boi;
+ 
+      msg.edit('📜 **| من فضلك اكتب عمرك  الأن... ✏ **').then(msg => {
+ 
+ 
+ 
+          message.channel.awaitMessages(filter, {
+ 
+            max: 1,
+ 
+            time: 90000,
+ 
+            errors: ['time']
+ 
+          })
+ 
+          .then(collected => {
+ 
+            collected.first().delete();
+ 
+            boi = collected.first().content;
+ 
+            let boi2;
+ 
+            msg.edit('🤵 **| من فضلك اكتب من اي بلد انت الأن... ✏ **').then(msg => {
+ 
+ 
+ 
+              message.channel.awaitMessages(filter, {
+ 
+                max: 1,
+ 
+                time: 90000,
+ 
+                errors: ['time']
+ 
+              })
+ 
+              .then(collected => {
+ 
+                collected.first().delete();
+ 
+              boi2 = collected.first().content;
+ 
+      msg.edit('🛡 **| [ هل انت متأكد من تقديمك؟ | [ نعم ] او [ لا**');
+ 
+ message.channel.awaitMessages(response => response.content === 'نعم' || 'لا' && filter,{
+ 
+        max: 1,
+ 
+        time: 90000,
+ 
+        errors: ['time']
+ 
+      })
+ 
+      .then(collected => {
+ 
+        if(collected.first().content === 'لا') {
+ 
+          msg.delete();
+ 
+          message.delete();
+ 
+          thisFalse = false;
+ 
+        }
+ 
+        if(collected.first().content === 'نعم') {
+ 
+          if(thisFalse === false) return;
+ 
+          msg.edit('🕊 **| Done ✅, تم بنجاح نشر تقديم في روم التقديمات**');
+ 
+          collected.first().delete();
+ 
+          submite.send(`@everyone | @here
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+**[ ${message.guild.name}:arrow_down: ] Submite⬇**
+ 
+[**اسم المقدم**]:
+${thisMessage}
+ 
+[**عمره**]:
+${boi}
+ 
+[**من بلد**]:
+${boi2}
+ 
+[**تم التقديم بواسطة**]:
+${message.author}
+ 
+[**ايدي المقدم**]:
+${message.author.id}`);
+ 
+        }
+ 
+      }
+ 
+  );
+ 
+});
+ 
+    });
+ 
+  }
+ 
+    );
+ 
+  });
+ 
+}
+ 
+);
+ 
+    })}});
+
+
+
+
+const { Client } = require('discord.js');
+const prefix = "!";
+const client = new Client();
+
+client.login('NTI4OTU4NjExNDk0NDA0MDk2.DzMPWg.EulJ5OQoM9D_K8lVBjq8fvwWBCQ');
+
+client.on('ready', () => {
+    console.log('ready');
+});
+
+client.on('message', message => {
+    let args = message.content.split(' ').slice(1);
+
+    if(message.content.startsWith(prefix + 'dm')) {
+        let mnt = message.mentions.users.first();
+        if(!mnt) return message.reply('Please mention someone!');
+        mnt.send(args.join(' ').replace(mnt, '')).then(() => {
+            message.channel.send('Successfully sent the message!');
+        }).catch(() => {
+            message.channel.send('The user have dms disabled');
+        });
+    };
+})
+
+
+client.on('message', message => {//new msg event
+if(!message.channel.guild) return;
+  if(message.content.startsWith(prefix + 'set')) {//to create the rainbow role
+      let role = message.guild.roles.find('name', 'Rainbow bot.')
+    if(role) return message.channel.send(`This Step Already Completed !`)//if the role already created return with this msg
+  //start of create role
+  if(!role){
+    rainbow =  message.guild.createRole({
+   name: "Rainbow bot.",//the role will create name
+   color: "#000000",//the default color
+   permissions:[]//the permissions
+ //end of create role
+})
+ 
+}
+message.channel.send('Done The Rainbow Role Setup Has Been Completed')//if the step completed
+}})
+ 
+client.on('ready', () => {//new ready event
+  setInterval(function(){
+      client.guilds.forEach(g => {
+                  var role = g.roles.find('name', 'Rainbow bot.');//rainbow role name
+                  if (role) {
+                      role.edit({color : "RANDOM"});
+                  };
+      });
+  }, 5000);//the rainbow time
+})
 
 
 
