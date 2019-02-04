@@ -119,17 +119,7 @@ client.on('message', message => {
 }});
 
 
-clinet.on ("guildMemberAdd", member => {
-  
-   var role = member.guild.roles.find ("name", "- CS 195 -");
-   member.addRole (role);
-  
-})
-
-clinet.on ("guildMemberRemove", member => {
-   
-})
-
+c
 
 
 
