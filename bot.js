@@ -50,7 +50,7 @@ client.on('message', message => {    ///Toxic Codes
 .setColor('#7d2dbe')
   message.channel.sendEmbed(embed);   ///Toxic Codes
     }  
-});    ///Toxic Codes
+});    
 
 
 
@@ -121,6 +121,7 @@ client.on('message', message => {
 }
 });
 
+
 client.on('message', message => {
     var p = message.mentions.members.first();
     var reason = message.content.split(" ").slice(2).join(' ');
@@ -151,7 +152,7 @@ client.on('message', message => {
             message.delete();
         log.send({embed});
     }
-});//toxic codes
+});
 
 
 client.on('message', message => {
