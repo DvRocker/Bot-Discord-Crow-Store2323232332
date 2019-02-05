@@ -119,7 +119,7 @@ client.on('message', message => {
     embed : banembed
   })
 }
-});
+})
 
 
 
