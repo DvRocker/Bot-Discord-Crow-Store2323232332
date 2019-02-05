@@ -2,18 +2,9 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 var prefix = "!"
 
-
-
-
-
-
 client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","- CS 195 -"));
     });
-
-
-
-
 
 
 client.on('message', message => {
@@ -41,7 +32,6 @@ client.on('message', message => {
       }
          
 });
-
 
 
 client.on('message', message => {    ///Toxic Codes
@@ -84,8 +74,6 @@ client.on('message', message => {
 });
 }});
 
-
-c
 
 
 
