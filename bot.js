@@ -153,6 +153,7 @@ client.on('message', message => {
     }
 });
 
+
 client.on('message', message => {
   var prefix = "!";
   if (message.author.bot) return;
@@ -176,6 +177,8 @@ client.on('message', message => {
 message.guild.member(user).kick();
   })
 }
+
+
 
 client.login(process.env.BOT_TOKEN);
 
